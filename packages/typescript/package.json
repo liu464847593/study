@@ -16,5 +16,8 @@
     "build": "tsc",
     "lint": "tslint -c tslint.json src/**/*.ts",
     "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.13"
   }
 }
