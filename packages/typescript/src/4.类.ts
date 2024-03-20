@@ -118,3 +118,16 @@ const m = new MyStudyStep();
 m.step1().step2().next();
 
 
+// 通过implements 实现interface
+interface MusicInterface{
+    playMusic():void
+}
+interface CallInterface{
+    makePhoneCall():void
+}
+class Cellphone implements MusicInterface, CallInterface{
+    playMusic() {}
+    makePhoneCall(){}
+}
+
+
