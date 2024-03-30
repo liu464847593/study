@@ -3,6 +3,16 @@ let age: number = 18;
 let realName: string = 'lin';
 let u: undefined = undefined;
 let n: null = null;
+let obj1: object = {name: 'lin'};
+let big: bigint = 100n;
+let sum: symbol = Symbol('lin');
+let body: HTMLElement = document.body
+let allDiv:NodeList = document.querySelectorAll('div');
+// MouseEvent
+document.addEventListener('click', (e: MouseEvent) => {
+    e.preventDefault()
+    // Do something
+});
 
 // any 任意类型
 let notSure: any = 4;
@@ -10,7 +20,7 @@ notSure = 'maybe a string';
 notSure = true;
 
 // unknown 类型代表任何类型 但是它是一个安全类型，使用 unknown 做任何事情都是不合法的。
-function divide(param:unknown){
+function divide(param: unknown) {
     return param as number / 2
 }
 
@@ -31,6 +41,11 @@ let list2: Array<number> = [1, 2, 3];
 
 // 元组类型 表示一个已知元素数量和类型的数组，各元素的类型不必相同
 let tuple: [string, number] = ['hello', 123];
+
+const date: Date = new Date();
+const error2: Error = new Error();
+const regExp: RegExp = /abc/;
+
 
 
 
