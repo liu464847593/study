@@ -1,23 +1,27 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+// import { RouterLink, RouterView } from 'vue-router'
+// import HelloWorld from './components/HelloWorld.vue'
+import { onMounted } from 'vue'
+import { useCounterStore} from '@/stores/counter.js'
+import {storeToRefs} from 'pinia'
+const counterStore = useCounterStore();
+
+
+const { count, doubleCount} = storeToRefs(counterStore);
+const { increment} = counterStore
+
+onMounted(() => {
+  counterStore.getList();
+})
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <button @click="increment">{{count}}</button>
+  {{doubleCount}}
+  <ul>
+    <li v-for="item in counterStore.list" :key="item.id">{{item.name}}</li>
+  </ul>
+<!--  <RouterView />-->
 </template>
 
 <style scoped>
